@@ -1,7 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-export const Input = () => {
+const Input = () => {
   return (
-    <div>Input</div>
-  )
+    <div className='input'>
+      <input type="text" placeholder='Type something...' />
+      <div className="send">
+        <img src="src/assets/img/attach.png" alt="" />
+        <input type="file" style={{display: 'none'}} id='file'/>
+        <label htmlFor="file">
+          <img src="src/assets/img/img.png" alt="" />
+        </label>
+        <button>Send</button>
+      </div>
+    </div>
+  );
 }
+
+export default Input;

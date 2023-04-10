@@ -1,4 +1,6 @@
 import React from 'react'
+import Messages from './Messages'
+import Input from './Input'
 
   const Chat = () => {
   return (
@@ -11,6 +13,8 @@ import React from 'react'
           <img src="src/assets/img/more.png" alt="" />
         </div>
       </div>
+      <Messages/>
+      <Input/>
     </div>
   )
 }
