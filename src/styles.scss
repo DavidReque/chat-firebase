@@ -170,7 +170,20 @@
         border-radius: 50%;
         object-fit: cover;
       }
+
+      .userChatInfo {
+        span {
+          font-size: 18px;
+          font-weight: 500;
+        }
+        p {
+          font-style: 14px;
+          color: lightgray;
+        }
+      }
     }
+
+    
 
     .chat {
       flex: 2;
