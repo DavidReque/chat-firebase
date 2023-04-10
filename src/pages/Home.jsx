@@ -1,7 +1,13 @@
+import Chat from "../components/Chat";
+import SideBar from "../components/SideBar";
+
 const Home = () => {
     return (
-        <div>
-            Home
+        <div className="home">
+            <div className="container">
+                <SideBar/>
+                <Chat/>
+            </div>
         </div>
     );
 }
