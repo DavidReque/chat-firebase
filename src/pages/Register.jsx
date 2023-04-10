@@ -13,7 +13,7 @@ const Register = () => {
             <img src="src/assets/img/addAvatar.png" alt="" />
             <span>Add an avatar</span>
           </label>
-          <button>Sign ip</button>
+          <button>Sign up</button>
         </form>
         <p>You do have an account? Login</p>
       </div>
