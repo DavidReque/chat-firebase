@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useContext, useRef, useEffect } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { ChatContext } from "../context/ChatContext";
 
-const Message = () => {
+const Message = ({ message }) => {
+  const { currentUser } = useContext(AuthContext);
+  const { data } = useContext(ChatContext);
+
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  }, [message]);
+
   return (
-    <div className='message owner'>
+    <div
+      ref={ref}
+      className={`message ${message.senderId === currentUser.uid && "owner"}`}
+    >
       <div className="messageInfo">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.lfq10Y4d1zOMcd_dvEw80AHaGR%26pid%3DApi&f=1&ipt=9cfdfffcc81b010e5f8fa7e80567a119d75dc2f467523dd1625eb7d271b1e47f&ipo=images" alt="" />
-        <span>Just now</span>
+        <img
+          src={
+            message.senderId === currentUser.uid
+              ? currentUser.photoURL
+              : data.user.photoURL
+          }
+          alt=""
+        />
+        <span>just now</span>
       </div>
       <div className="messageContent">
-        <p>Hello</p>
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.lfq10Y4d1zOMcd_dvEw80AHaGR%26pid%3DApi&f=1&ipt=9cfdfffcc81b010e5f8fa7e80567a119d75dc2f467523dd1625eb7d271b1e47f&ipo=images" alt="" />
+        <p>{message.text}</p>
+        {message.img && <img src={message.img} alt="" />}
       </div>
     </div>
   );
-}
+};
 
 export default Message;
