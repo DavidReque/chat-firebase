@@ -1,14 +1,23 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import Spinner from './Spinner'
 
 const Navbar = () => {
 
+  const [loading, setLoading] = useState(false)
+
   const { currentUser } = useContext(AuthContext)
 
-  function logOutClick() {
-    signOut(auth)
+  async function logOutClick() {
+    try {
+      setLoading(true)
+      await signOut(auth)
+    } catch (error) {
+      console.error(error);
+      setLoading(false)
+    }
   }
 
   return (
@@ -17,7 +26,7 @@ const Navbar = () => {
       <div className="user">
         <img src={currentUser.photoURL} alt="" />
         <span>{currentUser.displayName}</span>
-        <button onClick={logOutClick}>Logout</button>
+        <button onClick={logOutClick}>{loading ? <Spinner/> : 'Logout'}</button>
       </div>
     </div>
   );
