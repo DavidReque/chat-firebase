@@ -26,7 +26,9 @@ const Message = ({ message }) => {
           }
           alt=""
         />
-        <span>just now</span>
+        {/*<span>
+          {new Date().toLocaleTimeString('en-US', { hour12: true })}
+        </span>*/}
       </div>
       <div className="messageContent">
         <p>{message.text}</p>
