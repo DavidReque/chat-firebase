@@ -11,6 +11,8 @@ import {
 import { db, storage } from "../firebase/firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import attach from '../assets/img/attach.png'
+import img from '../assets/img/img.png'
 
 const Input = () => {
   const [text, setText] = useState("");
@@ -91,7 +93,7 @@ const Input = () => {
         value={text}
       />
       <div className="send">
-        <img src="src/assets/img/attach.png" alt="" />
+        <img src={attach} alt="" />
         <input
           type="file"
           style={{ display: "none" }}
@@ -99,7 +101,7 @@ const Input = () => {
           onChange={handleFile}
         />
         <label htmlFor="file">
-          <img src="src/assets/img/img.png" alt="" />
+          <img src={img} alt="" />
         </label>
         <button onClick={handleSend}>Send</button>
       </div>

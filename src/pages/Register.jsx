@@ -5,6 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import addAvatar from '../assets/img/addAvatar.png'
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -72,7 +73,7 @@ const Register = () => {
             <input type="password" placeholder="Password" />
             <input style={{ display: "none" }} type="file" id="file" />
             <label htmlFor="file">
-              <img src="src/assets/img/addAvatar.png" alt="" />
+              <img src={addAvatar} alt="" />
               <span>Add an avatar</span>
             </label>
             <button>Sign up</button>
