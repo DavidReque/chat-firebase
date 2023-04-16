@@ -79,11 +79,11 @@ const Search = () => {
     }
 
     setUser(null);
-    setUserName('')
+    setUserName("");
   }
 
   return (
-    <div className="search" >
+    <div className="search">
       <div className="searchForm">
         <input
           type="text"

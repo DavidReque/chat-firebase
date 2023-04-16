@@ -11,8 +11,8 @@ import {
 import { db, storage } from "../firebase/firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import attach from '../assets/img/attach.png'
-import img from '../assets/img/img.png'
+import attach from "../assets/img/attach.png";
+import img from "../assets/img/img.png";
 
 const Input = () => {
   const [text, setText] = useState("");
@@ -63,12 +63,12 @@ const Input = () => {
       [data.chatId + ".date"]: serverTimestamp(),
     });
 
-    await updateDoc(doc(db, 'userChats', data.user.uid),{
-      [data.chatId + '.lastMessage']:{
-        text
+    await updateDoc(doc(db, "userChats", data.user.uid), {
+      [data.chatId + ".lastMessage"]: {
+        text,
       },
-      [data.chatId+'.date']: serverTimestamp()
-    })
+      [data.chatId + ".date"]: serverTimestamp(),
+    });
 
     setText("");
     setImg(null);
@@ -93,7 +93,9 @@ const Input = () => {
         value={text}
       />
       <div className="send">
-        <img src={attach} alt="" />
+        <label htmlFor="file">
+          <img src={attach} alt="" />
+        </label>
         <input
           type="file"
           style={{ display: "none" }}

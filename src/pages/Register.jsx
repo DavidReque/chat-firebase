@@ -5,7 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
-import addAvatar from '../assets/img/addAvatar.png'
+import addAvatar from "../assets/img/addAvatar.png";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -80,7 +80,7 @@ const Register = () => {
             {err && <span style={{ color: "red" }}>Someting went wrong</span>}
           </form>
           <p>
-            Do you have an account?{" "}
+            Do you have an account?
             <Link to="/login" className="pForm">
               Login
             </Link>

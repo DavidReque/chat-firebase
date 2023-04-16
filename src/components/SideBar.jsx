@@ -3,11 +3,13 @@ import Navbar from "./Navbar";
 import Search from "./Search";
 
 const SideBar = () => {
-  return <div className="sidebar">
-    <Navbar/>
-    <Search/>
-    <Chats/>
-  </div>;
+  return (
+    <div className="sidebar">
+      <Navbar />
+      <Search />
+      <Chats />
+    </div>
+  );
 };
 
 export default SideBar;

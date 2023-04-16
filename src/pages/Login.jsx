@@ -14,16 +14,16 @@ const Login = () => {
     const email = e.target[0].value;
     const password = e.target[1].value;
 
-    setLoading(true)
+    setLoading(true);
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
       console.error(error);
       setErr(true);
-      setLoading(false)
+      setLoading(false);
     }
   }
 
